@@ -17,7 +17,7 @@
 
 12.docker stop -t 600 $(docker ps -a -q)
 13.docker rm $(docker ps -a -q)
-14.docker rmi $(docker images | grep "^<none>" | awk "{print $3}")  ou TENTE: docker rmi $(docker images -a -q)
+14.docker rmi $(docker images | grep "^<none>" | awk "{print $3}")  ou docker rmi $(docker images -a -q) ou docker rmi $(docker images -q) -f
 
 15.sudo snap install --classic heroku
 16.heroku login
