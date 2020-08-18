@@ -42,8 +42,9 @@
 32.docker build -t test-image .
 33.heroku login
 34.heroku create <name_of_your_app>
-35.docker login --username=<email_add_used_to_signup_to_heroku> password=$(heroku auth:token) registry.heroku.com
-36.heroku container:login
-37.docker tag test-image registry.heroku.com/<name_of_your_app>/web
-38.docker push registry.heroku.com/<name_of_your_app>/web
-39.heroku container:release web -a <name_of_web_app>
+35.heroku config:set METHOD='heroku container command'
+36.docker login --username=<email_add_used_to_signup_to_heroku> password=$(heroku auth:token) registry.heroku.com
+37.heroku container:login
+38.docker tag test-image registry.heroku.com/<name_of_your_app>/web
+39.docker push registry.heroku.com/<name_of_your_app>/web
+40.heroku container:release web -a <name_of_web_app>
