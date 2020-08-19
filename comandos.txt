@@ -13,7 +13,7 @@
 08.newgrp docker
 09.sudo chmod 666 /var/run/docker.sock
 10.sudo systemctl restart docker
-11.docker run hello-world
+11.docker run hello-world  ou docker run -it --name <container01> -d <imagem01>
 
 12.docker stop -t 600 $(docker ps -a -q)
 13.docker rm $(docker ps -a -q)
