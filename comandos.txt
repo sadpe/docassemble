@@ -48,3 +48,20 @@
 38.docker tag test-image registry.heroku.com/<name_of_your_app>/web
 39.docker push registry.heroku.com/<name_of_your_app>/web
 40.heroku container:release web -a <name_of_web_app>
+
+
+41.export DOCKER_USERNAME=user
+42.docker login
+43.docker build -t <user/imagem> .
+44.docker images
+45.docker tag <imagem_id> $(echo DOCKER_USERNAME)/sum
+46.docker push $(echo DOCKER_USERNAME)/sum
+47.docker commit <container_id> <user/imagem:version>      :cria uma imagem do container
+48.docker save <user/imagem:version> > arquivo_imagem.tar  :save/load works with Docker images
+49.docker load < arquivo_imagem.tar                        : Load an image or repository from a tar. It restores both images and tags.
+50.docker import arquivo_imagem.tar <user/imagem:version>  : Import from image to file system image
+51.mkdir arquivo_imagem && tar -xf arquivo_imagem.tar -C arquivo_imagem && tree arquivo_imagem
+52.docker export <container_id> > container.tar            :export works with Docker containers
+53.mkdir container && tar -xf container.tar -C container
+54.docker import container.tar <imagem>:latest             :import works with the file system of an container and imports as a image.
+55.docker [container] run --name <novo_nome_container> -ti --rm -p 80:80 <user/imagem:version>
